@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Sample RecyclerView Project</string>
+    <string name="title_activity_details">DetailsActivity</string>
+</resources>
