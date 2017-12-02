@@ -14,6 +14,16 @@ public class SongModel implements Serializable {
     private String songTypes;
 
 
+    public SongModel(){
+
+    }
+
+    public SongModel(String songTitle, String singerName, String songTypes) {
+        this.songTitle = songTitle;
+        this.singerName = singerName;
+        this.songTypes = songTypes;
+    }
+
     public int getSongId() {
         return songId;
     }
@@ -45,4 +55,7 @@ public class SongModel implements Serializable {
     public void setSongTypes(String songTypes) {
         this.songTypes = songTypes;
     }
+
+
+
 }
