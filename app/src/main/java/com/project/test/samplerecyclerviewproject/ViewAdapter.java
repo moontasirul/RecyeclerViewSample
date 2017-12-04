@@ -1,5 +1,6 @@
 package com.project.test.samplerecyclerviewproject;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,6 +48,23 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
             }
         });
 
+    }
+
+
+
+    /**
+     * This method is responsible for add item in recyclerView adapter
+     * @param mItemsList
+     */
+    public void addItems(@NonNull ArrayList<SongModel> mItemsList) {
+        if (mItemsList == null || mItemsList.isEmpty()) {
+            return;
+        }
+        mItemsList.clear();
+        songModelList.clear();
+        mItemsList.addAll(mItemsList);
+        songModelList.addAll(mItemsList);
+        notifyDataSetChanged();
     }
 
     @Override
