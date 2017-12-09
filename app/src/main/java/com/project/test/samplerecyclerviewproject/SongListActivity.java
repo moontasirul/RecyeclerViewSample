@@ -59,16 +59,16 @@ public class SongListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         mAdapter = new ViewAdapter(this);
-        mAdapter.addItem(songList);
         recyclerView.setAdapter(mAdapter);
 
 
 
 
 
+        Log.i("checkList", ""+songList.toString());
         prepareMovieData();
+
     }
 
 
@@ -176,8 +176,19 @@ public class SongListActivity extends AppCompatActivity {
         songList.add(songModel);
 
 
+        Log.i("checkList1", ""+songList.toString());
+        for(SongModel song:songList){
+          //  Log.i("checkList2", ""+song.getSongTypes());
 
+            if(song.getSongTypes().equalsIgnoreCase("2015")){
+                Log.i("checkList3", ""+ song.getSongTypes());
+                mAdapter.addItems(songList);
+            }
+        }
+
+
+
+      //  mAdapter.addItems(songList);
         mAdapter.notifyDataSetChanged();
-
     }
 }

@@ -1,7 +1,9 @@
 package com.project.test.samplerecyclerviewproject;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +21,11 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
 
     private List<SongModel> songModelList;
+    private Activity activity;
 
-
-    public ViewAdapter(List<SongModel> songModelList) {
-        this.songModelList = songModelList;
+    public ViewAdapter(Activity activity) {
+        this.activity= activity;
+        songModelList = new ArrayList<>();
     }
 
     @Override
@@ -56,13 +59,13 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
      * This method is responsible for add item in recyclerView adapter
      * @param mItemsList
      */
-    public void addItems(@NonNull ArrayList<SongModel> mItemsList) {
+    public void addItems(@NonNull List<SongModel> mItemsList) {
         if (mItemsList == null || mItemsList.isEmpty()) {
             return;
         }
-        mItemsList.clear();
+
+        Log.i("checkList", ""+mItemsList.toString());
         songModelList.clear();
-        mItemsList.addAll(mItemsList);
         songModelList.addAll(mItemsList);
         notifyDataSetChanged();
     }
